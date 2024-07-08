@@ -13,6 +13,14 @@ test.describe('User Registration', () => {
         await registrationPage.goto();
     }); // beforeEach end
 
+    // This runs after each test in this file
+    test.afterEach(async ({ page }) => {
+        // Your cleanup logic here
+        // For example, clearing cookies or localStorage
+        await page.context().clearCookies();
+        await page.evaluate(() => localStorage.clear());
+    }); // afterEach end
+
     // An example of how to register a new user
     test('should register a new user successfully', async ({page}) => {
         await registrationPage.fillUserName(process.env.TEST_USER_NAME || 'JohnTest UserDoe');
@@ -32,7 +40,7 @@ test.describe('User Registration', () => {
         const emailInputValue = await registrationPage.getUserEmail();
         const nameInputValue = await registrationPage.getUserName();
         const currentUrl = page.url();
-
+        
         await expect(emailInputValue).not.toBe('');
         await expect(nameInputValue).not.toBe('');
         await expect(currentUrl).toBe('https://flask.io/user/sign_up');

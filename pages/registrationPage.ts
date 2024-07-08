@@ -7,7 +7,7 @@ export class RegistrationPage {
     readonly userNameInputSelector = '#user_name';
     readonly userEmailInputSelector = '#user_email';
     readonly userPasswordInputSelector = '#user_password';
-    readonly submitButtonSelector = '//input[type="submit"]';
+    readonly submitButtonSelector = 'input[type="submit"][name="commit"]';
     readonly successMessageSelector = "//div[@id='notice' and contains(.,' Welcome! You have signed up successfully.')]";
     readonly registrationUrl = 'https://flask.io/user/sign_up';
 
@@ -37,14 +37,20 @@ export class RegistrationPage {
     }
 
     async getSuccessMessage() {
-        return await this.page.locator(this.successMessageSelector).textContent();
+        const successMessageLocator = this.page.locator(this.successMessageSelector);
+        await successMessageLocator.waitFor({ state: 'visible' });
+        return await successMessageLocator.textContent();
     }
 
     async getUserName() {
-        return await this.page.locator(this.userNameInputSelector).textContent();
+        const nameLocator = this.page.locator(this.userNameInputSelector);
+        await nameLocator.waitFor({ state: 'visible' });
+        return await this.page.locator(this.userNameInputSelector).inputValue();
     }
 
     async getUserEmail() {
+        const emailLocator = this.page.locator(this.userEmailInputSelector);
+        await emailLocator.waitFor({ state: 'visible' });
         return await this.page.locator(this.userEmailInputSelector).inputValue();
     }
 
