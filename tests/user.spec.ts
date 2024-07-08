@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-
 // Importing POM class
 import { RegistrationPage } from '../pages/registrationPage';
+
 
 test.describe('User Registration', () => {
 

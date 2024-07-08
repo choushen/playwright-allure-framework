@@ -1,6 +1,8 @@
 import { Page } from '@playwright/test';
 
+
 export class RegistrationPage {
+
     readonly page: Page;
     readonly userNameInputSelector = '#user_name';
     readonly userEmailInputSelector = '#user_email';
@@ -45,7 +47,5 @@ export class RegistrationPage {
     async getUserEmail() {
         return await this.page.locator(this.userEmailInputSelector).inputValue();
     }
-
-
 
 } // RegistrationPage end
