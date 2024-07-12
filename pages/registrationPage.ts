@@ -9,7 +9,7 @@ export class RegistrationPage {
     readonly userPasswordInputSelector = '#user_password';
     readonly submitButtonSelector = 'input[type="submit"][name="commit"]';
     readonly successMessageSelector = "//div[@id='notice' and contains(.,' Welcome! You have signed up successfully.')]";
-    readonly registrationUrl = 'https://flask.io/user/sign_up';
+    readonly registrationUrl = '/user/sign_up';
 
 
     constructor(page: Page) {
