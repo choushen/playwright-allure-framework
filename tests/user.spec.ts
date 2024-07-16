@@ -3,16 +3,27 @@ import { test, expect } from '@playwright/test';
 import faker from 'faker';  
 // Importing POM class
 import { RegistrationPage } from '../pages/registrationPage';
+const demoUsers = require('../resources/demo-user.json');
 
 
 test.describe('User Registration', () => {
 
     let registrationPage: RegistrationPage;
-    let defaultPassword = 'Password123!';
+    let defaultPassword: string;
+    let user: any;
 
   // Open the browser and navigate to the registration page before each test
     test.beforeEach(async ({ page }) => {
         registrationPage = new RegistrationPage(page);
+
+        user = demoUsers.users.find(u => u.id === "jtud");
+        
+        if(user) {
+            defaultPassword = user.password;
+        } else {
+            throw new Error('User not found');
+        }
+
         await registrationPage.goto();
     }); // beforeEach end
 
