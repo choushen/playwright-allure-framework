@@ -1,11 +1,24 @@
 {
-    "users":
+    "user_accounts":
     [
         {
-            "id": "jtud",
-            "name": "JohnTest UserDoe",
-            "email": "JohnTestUserDoe@gmail.com",
-            "password": "Password123!"
+            "id": "test_user",
+            "email": "ruliotrio@gmail.com",
+            "password": "139Test391!"
+        }
+    ],
+    "user_api_info":
+    [
+        {
+            "key": "94963e10e201903158cdec6b08d657e2",
+            "secret": "042ed51dfd913d558b81ece853780de9abe1fe8dc51140bc11a5cc3b21a3070c"
+        }
+    ],
+    "demo_boards":
+    [
+        {
+            "board_name": "demo_board",
+            "board_url": "https://trello.com/b/k0PUVMRl/demo-board"
         }
     ]
 }
