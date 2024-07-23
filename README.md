@@ -1,4 +1,4 @@
-# Playwright Allure Test Framework
+# Playwright Allure Test Framework (Work In Progress)
 
 A test framework using Playwright and Allure Reporting that is suitable for real application testing. This framework includes features like dynamic environment setup, API steps, faker for test data generation, GitHub actions for CI/CD, and more.
 
